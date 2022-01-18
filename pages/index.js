@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Input from "../components/Input";
-import LandingImages from "../components/LandingImages";
+import LandingImages from "../components/LandingImage";
 
 export default function Home() {
   return (

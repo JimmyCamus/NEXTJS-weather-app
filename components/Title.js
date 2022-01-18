@@ -5,6 +5,12 @@ const Title = styled.h1`
   justify-content: center;
   align-items: center;
   font-size: 40px;
+
+  @media screen and (max-width: 768px) {
+    & {
+      font-size: 32px;
+    }
+  }
 `;
 
 export default Title;

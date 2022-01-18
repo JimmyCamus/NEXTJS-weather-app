@@ -5,6 +5,7 @@ import MyInput from "./MyInput";
 import Card from "./Card";
 import Container from "./Container";
 import Li from "./Li";
+import RemoveAccents from "../utils/RemoveAccents";
 import cities from "../lib/cities.json";
 
 const Input = () => {
@@ -17,7 +18,7 @@ const Input = () => {
 
     return () => {
       Router.events.off("routeChangeComplete", clearQuery);
-    }
+    };
   }, []);
 
   const onChange = ({ target }) => {
@@ -27,7 +28,7 @@ const Input = () => {
 
     if (target.value.length > 3) {
       for (let city of cities) {
-        if (matchCities.length > 5) {
+        if (matchCities.length > 8) {
           break;
         }
         const match = city.name
@@ -62,7 +63,9 @@ const Input = () => {
               results.map((city, country) => (
                 <Li key={city + country}>
                   <Link
-                    href={`/cities/${city.name.toLowerCase()},${city.country.toLowerCase()}`}
+                    href={`/cities/${RemoveAccents(
+                      city.name.toLowerCase()
+                    )},${city.country.toLowerCase()}`}
                   >
                     <a>
                       {city.name}, {city.country}
